@@ -191,11 +191,8 @@ class Spider():
                 lrc = resp.json()['lrc']['lyric']
             except:
                 lrc = '纯音乐，无歌词'
-            # UTF-8 with BOM / GB 2312 避免歌词在某些mp4中乱码
             with open(fpath, 'w', encoding='utf-8-sig') as lrc_file:
                 lrc_file.write(lrc)
-            f = open(fpath,'a',encoding='gb2312')
-            f.close()
 
     def getPlaylist(self, playlist_id):
         """获取歌单信息
